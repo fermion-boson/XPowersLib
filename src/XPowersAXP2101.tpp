@@ -27,6 +27,9 @@
  * @date      2022-05-07
  *
  */
+//删除arduino定义，以避免与arduino冲突
+#undef ARDUINO
+#undef ARDUINO_ARCH_AVR
 
 #if defined(ARDUINO)
 #include <Arduino.h>
