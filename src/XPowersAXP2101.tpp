@@ -40,6 +40,7 @@
 #include "XPowersCommon.tpp"
 #include "REG/AXP2101Constants.h"
 #include "XPowersLibInterface.hpp"
+#include "esp_log.h"
 
 typedef enum {
     XPOWERS_AXP2101_IRQ_TIME_1S,
@@ -3081,6 +3082,8 @@ protected:
 
     bool initImpl()
     {
+        // ESP_LOGI("AXP","CHIP ID: 0x%X", getChipID());
+        //如果初始化失败，可根据芯片ID进行二次确认
         if (getChipID() == XPOWERS_AXP2101_CHIP_ID) {
             setChipModel(XPOWERS_AXP2101);
             disableTSPinMeasure();      //Disable NTC temperature detection by default
